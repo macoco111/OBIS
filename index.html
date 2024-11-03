@@ -80,6 +80,16 @@
     .instagram {
       background-image: url("/instagram-icon.png");
     }
+    .share-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #333;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
   </style>
 </head>
 <body>
@@ -89,7 +99,7 @@
   </div>
 
   <!-- Clicker and Counter Section -->
-  <div class="clicker-container">
+  <div class="clicker-container" id="screenshotSection">
     <!-- Text Input Bar -->
     <div class="text-input-container">
       <input type="text" placeholder="Add a line of text here..." id="textInput">
@@ -110,7 +120,13 @@
         <button class="social-button instagram" aria-label="Instagram"></button>
       </a>
     </div>
+
+    <!-- Share Screenshot Button -->
+    <button class="share-button" id="shareScreenshot">Share Screenshot</button>
   </div>
+
+  <!-- html2canvas Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
   <script>
     // Retrieve stored counter value or start from 0
@@ -125,6 +141,32 @@
       counter++; // Increment counter
       counterDisplay.textContent = counter; // Update display
       localStorage.setItem("clickCounter", counter); // Save to localStorage
+    });
+
+    // Screenshot and Share Functionality
+    document.getElementById("shareScreenshot").addEventListener("click", () => {
+      html2canvas(document.body).then((canvas) => {
+        // Convert the canvas to a data URL
+        const dataUrl = canvas.toDataURL("image/png");
+
+        // Check if the Web Share API is available and supports files
+        if (navigator.share && navigator.canShare({ files: [new File([dataUrl], "screenshot.png")] })) {
+          canvas.toBlob((blob) => {
+            const file = new File([blob], "screenshot.png", { type: "image/png" });
+            navigator.share({
+              files: [file],
+              title: "OBISHRUB Screenshot",
+              text: "Check out my OBISHRUB clicker progress!",
+            });
+          });
+        } else {
+          // If Web Share API is unavailable, offer a download link
+          const link = document.createElement("a");
+          link.href = dataUrl;
+          link.download = "screenshot.png";
+          link.click();
+        }
+      });
     });
   </script>
 </body>
