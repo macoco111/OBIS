@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clicker Game with Logo, Background, and Text Bar</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-image: url("/background.jpg");
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+    .logo {
+      margin-top: 20px;
+    }
+    .logo img {
+      width: 150px; /* Adjust size as needed */
+      height: auto;
+    }
+    .clicker-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    #clickerButton {
+      width: 100px;
+      height: 100px;
+      background-image: url("/image.jpg");
+      background-size: cover;
+      background-position: center;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    #counterDisplay {
+      font-size: 48px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .text-input-container {
+      margin-bottom: 20px;
+    }
+    .text-input-container input {
+      padding: 10px;
+      font-size: 18px;
+      width: 250px;
+      border-radius: 5px;
+      border: none;
+    }
+    .social-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .social-button {
+      width: 50px;
+      height: 50px;
+      background-size: cover;
+      background-position: center;
+      border: none;
+      cursor: pointer;
+    }
+    .facebook {
+      background-image: url("/facebook-icon.png");
+    }
+    .twitter {
+      background-image: url("/twitter-icon.png");
+    }
+    .instagram {
+      background-image: url("/instagram-icon.png");
+    }
+  </style>
+</head>
+<body>
+  <!-- Logo -->
+  <div class="logo">
+    <img src="/logo.png" alt="Logo">
+  </div>
+
+  <!-- Clicker and Counter Section -->
+  <div class="clicker-container">
+    <!-- Text Input Bar -->
+    <div class="text-input-container">
+      <input type="text" placeholder="Add a line of text here..." id="textInput">
+    </div>
+
+    <button id="clickerButton"></button>
+    <div id="counterDisplay">0</div>
+
+    <!-- Social Media Buttons -->
+    <div class="social-buttons">
+      <a href="https://facebook.com/yourprofile" target="_blank">
+        <button class="social-button facebook" aria-label="Facebook"></button>
+      </a>
+      <a href="https://twitter.com/yourprofile" target="_blank">
+        <button class="social-button twitter" aria-label="Twitter"></button>
+      </a>
+      <a href="https://instagram.com/yourprofile" target="_blank">
+        <button class="social-button instagram" aria-label="Instagram"></button>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Retrieve stored counter value or start from 0
+    let counter = localStorage.getItem("clickCounter") ? parseInt(localStorage.getItem("clickCounter")) : 0;
+
+    // Reference to counter display
+    const counterDisplay = document.getElementById("counterDisplay");
+    counterDisplay.textContent = counter; // Set initial counter display
+
+    // Click event for button
+    document.getElementById("clickerButton").addEventListener("click", () => {
+      counter++; // Increment counter
+      counterDisplay.textContent = counter; // Update display
+      localStorage.setItem("clickCounter", counter); // Save to localStorage
+    });
+  </script>
+</body>
+</html>
