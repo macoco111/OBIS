@@ -4,8 +4,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeModalButton = document.querySelector(".close-modal");
     const terminalWindow = document.getElementById("terminal");
     const closeTerminalButton = terminalWindow.querySelector(".close-button");
+    const reopenTerminalButton = document.getElementById("reopen-terminal");
+    const terminalInput = document.getElementById("terminal-input");
+    const terminalOutput = document.getElementById("terminal-output");
+    const timeDisplay = document.getElementById("time-display"); // Time display element
 
-        // Reopen Terminal Functionality
+    // Reopen Terminal Functionality
     reopenTerminalButton.addEventListener("click", () => {
         terminalWindow.style.display = "block";
     });
