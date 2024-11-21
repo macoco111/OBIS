@@ -8,15 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
      const terminalInput = document.getElementById("terminal-input");
     const terminalOutput = document.getElementById("terminal-output");
   
-     // Reopen Terminal Functionality
-     reopenTerminalButton.addEventListener('click', () => {
-        terminalWindow.style.display = 'block';
-    });
-
-    // Close Terminal Functionality
-    closeTerminalButton.addEventListener('click', () => {
-        terminalWindow.style.display = 'none'; // Hide the terminal window
-    });
   
     // Simulated girl responses
     function generateReply(input) {
