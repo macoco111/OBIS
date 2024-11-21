@@ -113,6 +113,13 @@ html {
     margin-left: auto; /* Keep the time aligned to the right */
 }
 
+.country-display {
+    font-size: 14px;
+    margin-left: 20px;
+    color: white;
+}
+
+
 /* Terminal Window */
 .window {
   background-color: #1e2128;
