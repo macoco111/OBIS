@@ -9,19 +9,17 @@ html {
   color: #ffffff;
 }
 
-/* Desktop background with GIF */
 .desktop {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: stretch;
-  height: 100%;
-  background: url("background.gif"); 
-  background-repeat: no-repeat;
-  background-position: center;
-  overflow: hidden;
-  background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: stretch;
+    height: 100%;
+    /* Set the background GIF */
+    background: url('images/background.gif') no-repeat center center/cover;
+    overflow: hidden;
 }
+
 
 /* Desktop Icons */
 .desktop-icons {
