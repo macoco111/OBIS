@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const terminalWindow = document.getElementById('terminal');
     const closeTerminalButton = terminalWindow.querySelector('.close-button');
     const reopenTerminalButton = document.getElementById('reopen-terminal');
+    const terminalInput = document.getElementById('terminal-input');
+    const terminalOutput = document.getElementById('terminal-output');
     const timeDisplay = document.getElementById('time-display'); // Time display element
 
     // Reopen Terminal Functionality
@@ -64,6 +66,47 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Basic replies based on user input
+    if (input.includes("hello") || input.includes("hi")) {
+        return " hey babe thanks for visiting for my page! How’s your day?☺";
+      } else if (input.includes("how are you")) {
+        return "it’s Lucy here, ur new favourite girl next door 🥰 lovely meeting you! ";
+      } else if (input.includes("your name")) {
+        return "I'm lucy, your girl next door! Nice to meet you.";
+      } else if (input.includes("what can you do")) {
+        return " I can chat with you & keep you company, maybe we can end up having some fun 🤫";
+      } else if (input.includes("joke")) {
+        return "Wouldn’t you love to go down under 😉";
+      } else if (input.includes("love")) {
+        return "aww that made me blush! ☺ always here to make you smile and relieve your stress, I hope to connect with you further ";
+      } else if (input.includes("bye")) {
+        return " goodbye, I’m sure to speak soon babe! ☺🤫";
+      } else if (input === "clear") {
+        return "clear"; // Reserved for clearing the screen
+      } else {
+        return "I'm not sure how to reply to that, but I'm here to listen! 😊";
+      }
+    }
+
+    // Handle User Input
+    terminalInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const userInput = terminalInput.value.trim();
+            terminalOutput.innerHTML += `> ${userInput}\n`; // Echo user input
+
+            const reply = generateReply(userInput);
+
+            if (reply === "clear") {
+                terminalOutput.innerHTML = ""; // Clear terminal
+            } else {
+                terminalOutput.innerHTML += `${reply}\n`; // Show reply
+            }
+
+            terminalInput.value = ""; // Clear input field
+            terminalOutput.scrollTop = terminalOutput.scrollHeight; // Auto-scroll to bottom
+        }
+    });
+
     // Toggle the Media Library Modal
     startButton.addEventListener('click', () => {
         toggleMediaLibrary(true);
@@ -77,3 +120,4 @@ document.addEventListener('DOMContentLoaded', () => {
         mediaLibraryModal.style.display = show ? 'flex' : 'none';
     }
 });
+
