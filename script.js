@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeModalButton = document.querySelector(".close-modal");
     const terminalWindow = document.getElementById("terminal");
     const closeTerminalButton = terminalWindow.querySelector(".close-button");
+
+     const terminalInput = document.getElementById("terminal-input");
+    const terminalOutput = document.getElementById("terminal-output");
   
      // Reopen Terminal Functionality
      reopenTerminalButton.addEventListener('click', () => {
