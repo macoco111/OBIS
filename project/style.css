@@ -1,0 +1,238 @@
+/* Reset */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: monospace;
+  background-color: #282c34;
+  color: #ffffff;
+}
+
+/* Desktop background with GIF */
+.desktop {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: stretch;
+  height: 100%;
+  background: url("images/background.gif") no-repeat center center/cover;
+  overflow: hidden;
+}
+
+/* Desktop Icons */
+.desktop-icons {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.icon {
+  text-align: center;
+  width: 80px;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+
+.icon img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.icon span {
+  font-size: 12px;
+  margin-top: 5px;
+  display: block;
+}
+
+.icon:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.icon {
+  text-align: center;
+  width: 80px;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+
+.icon img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.icon span {
+  font-size: 12px;
+  margin-top: 5px;
+  display: block;
+}
+
+.icon:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Taskbar */
+.taskbar {
+  background-color: #1f2229;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.start-button {
+  background: #007acc;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+
+.time {
+  font-size: 14px;
+}
+
+/* Terminal Window */
+.window {
+  background-color: #1e2128;
+  border: 2px solid #007acc;
+  border-radius: 8px;
+  width: 500px;
+  height: 300px;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.window-header {
+  background: #007acc;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: move;
+}
+
+.window-header span {
+  font-weight: bold;
+  color: white;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.window-content {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#terminal-input {
+  background: #000000;
+  color: #00ff00;
+  border: none;
+  padding: 5px;
+  outline: none;
+  margin-top: auto;
+  font-size: 14px;
+}
+
+#terminal-output {
+  flex: 1;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  font-size: 14px;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #1e2128;
+  width: 80%;
+  max-height: 80%;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  background: #007acc;
+  padding: 10px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.modal-body {
+  padding: 10px;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  justify-items: center;
+}
+
+.media-item img,
+.media-item video {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s;
+}
+
+.media-item img:hover,
+.media-item video:hover {
+  transform: scale(1.05);
+}
+
+.close-modal {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
