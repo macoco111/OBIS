@@ -83,25 +83,34 @@ html {
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
-/* Taskbar */
 .taskbar {
-  background-color: #1f2229;
-  padding: 5px 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    background-color: #1f2229;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px; /* Add spacing between buttons */
 }
 
-.start-button {
-  background: #007acc;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  color: white;
+.start-button,
+.reopen-terminal-button {
+    background: #007acc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-family: monospace;
+}
+
+.start-button:hover,
+.reopen-terminal-button:hover {
+    background: #005f99;
 }
 
 .time {
-  font-size: 14px;
+    font-size: 14px;
+    margin-left: auto; /* Keep the time aligned to the right */
 }
 
 /* Terminal Window */
