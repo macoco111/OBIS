@@ -149,29 +149,4 @@ document.addEventListener("DOMContentLoaded", () => {
     // ... Rest of your existing script (terminal, dragging, modal toggles, etc.)
   });
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Elements for the country display and taskbar buttons
-    const countryDisplay = document.getElementById('country-display');
 
-    // Fetch user location from ipinfo.io (Note: This may require an API key after certain usage limits)
-    function fetchUserCountry() {
-        fetch('https://ipinfo.io?token=YOUR_API_KEY')
-            .then(response => response.json())
-            .then(data => {
-                if (data && data.country) {
-                    countryDisplay.textContent = data.country;
-                } else {
-                    countryDisplay.textContent = "Unknown";
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching user country:', error);
-                countryDisplay.textContent = "Unknown";
-            });
-    }
-
-    // Call the function to fetch and display the country
-    fetchUserCountry();
-
-    // The rest of your JavaScript code here (e.g., terminal functionality, time display, dragging, etc.)
-});
