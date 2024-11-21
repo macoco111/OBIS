@@ -34,6 +34,12 @@ document.addEventListener("DOMContentLoaded", () => {
         return " I can chat with you & keep you company, maybe we can end up having some fun 🤫";
       } else if (input.includes("joke")) {
         return "Wouldn’t you love to go down under 😉";
+       } else if (input.includes("horny")) {
+        return "you are making me so so so wet";
+      } else if (input.includes("slut")) {
+           return "I am your dirty dirty slut";
+      } else if (input.includes("fuck")) {
+           return "Yes daddy make me wet";
       } else if (input.includes("love")) {
         return "aww that made me blush! ☺️ always here to make you smile and relieve your stress, I hope to connect with you further ";
       } else if (input.includes("bye")) {
