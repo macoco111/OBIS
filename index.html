@@ -23,16 +23,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
   <div class="desktop">
 
-    <!-- Preloader: Shows before the main content -->
-    <div id="preloader">
-        <div class="loader"></div>
+    <!-- Terminal Preloader -->
+    <div id="terminal-preloader">
+        <div class="terminal-text" id="loading-text"></div>
     </div>
 
-    <!-- Main content: This will be hidden until the preloader finishes -->
+    <!-- Main content: Hidden until the loader completes -->
     <div id="main-content" style="display: none;">
-        <h1>Hey Daddy ...</h1>
-        <p>Come make me wet...</p></p>
-        <!-- Add other parts of your website here -->
+        <h1>Welcome to My Website!</h1>
+        <p>This is the main content of your website.</p>
     </div>
 
     <div class="desktop-icons">
@@ -138,20 +137,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         });
     </script>
     <script>
-        document.addEventListener('contextmenu', (event) => event.preventDefault());
-    </script>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        // When the whole window content has loaded
-        window.onload = function() {
-            // Hide the preloader and show the main content
-            const preloader = document.getElementById("preloader");
-            const mainContent = document.getElementById("main-content");
+        document.addEventListener("DOMContentLoaded", () => {
+    // Define the lines of text to display
+    const lines = [
+        "Initializing system...",
+        "Loading resources...",
+        "Almost ready..."
+    ];
 
-            preloader.style.display = "none"; // Hide the preloader
-            mainContent.style.display = "block"; // Show the main content
-        };
-    });
+    const loadingTextElement = document.getElementById("loading-text");
+    let lineIndex = 0;
+
+    function typeLine() {
+        if (lineIndex < lines.length) {
+            loadingTextElement.innerHTML += lines[lineIndex] + "\n";
+            lineIndex++;
+            setTimeout(typeLine, 1500); // Delay for each line
+        } else {
+            // All lines have been typed; hide the preloader after a short delay
+            setTimeout(() => {
+                const preloader = document.getElementById("terminal-preloader");
+                const mainContent = document.getElementById("main-content");
+
+                preloader.style.display = "none"; // Hide the preloader
+                mainContent.style.display = "block"; // Show the main content
+            }, 1000);
+        }
+    }
+
+    // Start typing the lines when the content is loaded
+    window.onload = function() {
+        typeLine();
+    };
+});
+
 </script>
 
 </body>
