@@ -1,6 +1,5 @@
 /* Reset */
-body,
-html {
+body, html {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -17,147 +16,136 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #1e1e1e; /* Terminal-style dark background */
-    color: #ffffff;
+    background-color: #1e1e1e;
+    color: #FFFFFF;
     font-family: monospace;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 9999; /* Ensure it covers the entire page */
+    z-index: 9999;
 }
 
-.terminal-text {
-    white-space: pre-line;
-    font-size: 1.2em;
-    text-align: left;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #111; /* Slightly darker for a terminal look */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-}
-
-/* Desktop Background */
-.desktop {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: stretch;
-    height: 100vh;
-    width: 100%;
-    background: url('images/background.gif') no-repeat center center/cover;
-    overflow: hidden;
-}
-
-/* Desktop Icons */
+/* Desktop Icons Container */
 .desktop-icons {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .icon {
-    text-align: center;
-    width: 80px;
-    cursor: pointer;
-    text-decoration: none;
-    color: white;
+  text-align: center;
+  width: 60px;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .icon img {
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
-    transition: transform 0.2s, box-shadow 0.2s;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
 }
 
 .icon span {
-    font-size: 12px;
-    margin-top: 5px;
-    display: block;
+  font-size: 12px;
+  margin-top: 5px;
+  display: block;
 }
 
 .icon:hover img {
-    transform: scale(1.1);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
 /* Taskbar */
 .taskbar {
     background-color: #1f2229;
-    padding: 10px;
+    padding: 5px 10px;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: flex-start;
     align-items: center;
-    gap: 10px; /* Spacing between buttons */
+    gap: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.start-button,
-.reopen-terminal-button,
-#open-livestream,
-#lucyluvi-chat {
+.start-button, .reopen-terminal-button, #open-livestream, #lucyluvi-chat {
     background: #007acc;
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 10px 20px;
+    padding: 10px 15px;
     cursor: pointer;
     font-family: monospace;
-    transition: background-color 0.3s ease;
-    margin-bottom: 5px; /* Add space at the bottom for better alignment */
+    flex: 1; /* Make buttons take equal space */
+    max-width: 120px;
+    text-align: center;
 }
 
-.start-button:hover,
-.reopen-terminal-button:hover,
-#open-livestream:hover,
-#lucyluvi-chat:hover {
+.start-button:hover, .reopen-terminal-button:hover, #open-livestream:hover, #lucyluvi-chat:hover {
     background: #005f99;
 }
 
-.time {
-    font-size: 1em;
-    margin-left: auto; /* Keep the time aligned to the right */
-}
+/* Responsive styles for buttons */
+@media screen and (max-width: 600px) {
+    .taskbar button {
+        padding: 8px 10px;
+        font-size: 14px;
+        max-width: 100px;
+    }
 
-.country-display {
-    font-size: 1em;
-    margin-left: 20px;
-    color: white;
+    .desktop-icons {
+        top: 10px;
+        left: 10px;
+        gap: 10px;
+    }
+
+    .icon {
+        width: 45px;
+    }
+
+    .icon img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .icon span {
+        font-size: 10px;
+    }
 }
 
 /* Terminal Window */
-.terminal-window,
-.window,
-.modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    max-width: 600px;
-    height: 50vh;
-    background-color: #1e1e1e; /* Dark terminal background */
-    color: #00ff00;
-    border: 2px solid #007acc;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    z-index: 1000; /* Ensure it’s on top of other content */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+.window {
+  background-color: #1e2128;
+  border: 2px solid #007acc;
+  border-radius: 8px;
+  width: 90%; /* Ensure it fits on smaller screens */
+  height: 50vh; 
+  max-width: 600px; /* Maximum width for larger screens */
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Window Header for Terminal and Modal */
+/* Dragging Styles */
 .window-header {
     background: #007acc;
-    color: white;
-    padding: 10px;
+    padding: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: move;
-    font-weight: bold;
+    color: white;
 }
 
 .close-button {
@@ -172,132 +160,77 @@ html {
     flex: 1;
     padding: 10px;
     overflow-y: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-/* Input and Output for Terminal */
 #terminal-input {
-    background: #000000;
-    color: #00ff00;
-    border: none;
-    padding: 5px;
-    outline: none;
-    margin-top: auto;
-    font-size: 1em;
+  background: #000000;
+  color: #00ff00;
+  border: none;
+  padding: 5px;
+  outline: none;
+  margin-top: auto;
+  font-size: 14px;
 }
 
 #terminal-output {
-    flex: 1;
-    overflow-y: auto;
-    white-space: pre-wrap;
-    font-size: 1em;
+  flex: 1;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  font-size: 14px;
 }
 
-/* Modal Styling */
+/* Modal Window */
 .modal {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    max-width: 600px;
-    background: #1e1e1e;
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  height: 70vh;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  flex-direction: column;
+  border-radius: 8px;
 }
 
 .modal-content {
-    background: #1e2128;
+  padding: 10px;
+  flex: 1;
+}
+
+.close-modal {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  align-self: flex-end;
+}
+
+/* Livestream Terminal Window */
+.livestream-window {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
     width: 90%;
-    max-height: 80vh;
+    max-width: 600px;
+    background-color: #1e1e1e;
+    color: #00ff00;
+    border: 2px solid #007acc;
     border-radius: 8px;
-    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
+    z-index: 1000;
 }
 
-.media-list {
-    padding: 10px;
-    max-height: 70vh;
-    overflow-y: auto;
-}
-
-.media-link {
-    color: #007acc;
-    text-decoration: none;
-    font-size: 1em;
-    margin-bottom: 10px;
-    display: block;
-}
-
-.media-link:hover {
-    text-decoration: underline;
-}
-
-.media-display {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.media-display img,
-.media-display video {
-    max-width: 100%;
-    max-height: 100%;
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
     border-radius: 8px;
 }
 
-
-/* Media Query for Small Devices (Phones) */
-@media only screen and (max-width: 600px) {
-    .taskbar {
-        flex-direction: column; /* Stack buttons vertically on smaller screens */
-        align-items: stretch;
-    }
-
-    #open-livestream,
-    #lucyluvi-chat,
-    .start-button,
-    .reopen-terminal-button {
-        width: 100%; /* Make buttons full width for better visibility */
-        margin-right: 0; /* Remove margin between buttons */
-    }
-
-    .terminal-window,
-    .window,
-    .modal {
-        width: 95%; /* Reduce window size slightly for small devices */
-        height: 60vh;
-    }
-
-    .terminal-text {
-        font-size: 1em; /* Reduce font size slightly on small screens */
-    }
-
-    iframe {
-        width: 100%;
-        height: 100%;
-    }
-}
-
-/* Media Query for Tablets (600px - 1024px) */
-@media only screen and (min-width: 600px) and (max-width: 1024px) {
-    .terminal-window,
-    .window,
-    .modal {
-        width: 85%;
-        height: 65vh;
-    }
-
-    #open-livestream,
-    #lucyluvi-chat,
-    .start-button,
-    .reopen-terminal-button {
-        padding: 12px 20px; /* Increase padding for better touch experience on tablets */
-    }
-}
