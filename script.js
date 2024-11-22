@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const mediaViewer = document.getElementById("media-viewer");
     const mediaDisplay = document.getElementById("media-display");
     const mediaTitle = document.getElementById("media-title");
+    const closeMediaViewerButton = mediaViewer.querySelector(".close-modal");
 
     // Sample media items
     const mediaItems = [
@@ -138,6 +139,11 @@ document.addEventListener("DOMContentLoaded", () => {
     function toggleMediaViewer(show) {
         mediaViewer.style.display = show ? "flex" : "none";
     }
+
+    // Close media viewer functionality
+    closeMediaViewerButton.addEventListener("click", () => {
+        toggleMediaViewer(false);
+    });
 
     // Function to open the livestream terminal
     window.openLivestream = function() {
