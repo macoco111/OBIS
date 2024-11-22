@@ -296,3 +296,54 @@ html {
   cursor: pointer;
   font-size: 16px;
 }
+/* Terminal-style window for the livestream */
+.terminal-window {
+    position: fixed;
+    top: 20%;
+    left: 20%;
+    width: 600px;
+    height: 400px;
+    background-color: #1e1e1e; /* Dark terminal background */
+    color: #00ff00; /* Terminal-like green text */
+    border: 2px solid #007acc;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000; /* Ensure it’s on top of other content */
+}
+
+.window-header {
+    background: #007acc;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move;
+    font-weight: bold;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.window-content {
+    flex: 1;
+    padding: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+}
