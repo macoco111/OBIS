@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const startButton = document.querySelector(".start-button");
     const mediaLibraryModal = document.getElementById("media-library");
-    const closeModalButton = document.querySelector(".close-modal");
+    const closeModalButton = mediaLibraryModal.querySelector(".close-modal");
     const terminalWindow = document.getElementById("terminal");
     const closeTerminalButton = terminalWindow.querySelector(".close-button");
     const reopenTerminalButton = document.getElementById("reopen-terminal");
@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const terminalOutput = document.getElementById("terminal-output");
     const timeDisplay = document.getElementById("time-display"); // Time display element
     const livestreamTerminal = document.getElementById("livestream-terminal");
-    const windowHeader = terminalWindow.querySelector(".window-header");
     const livestreamWindowHeader = livestreamTerminal.querySelector(".window-header");
     const openLivestreamButton = document.getElementById("open-livestream");
     const mediaList = document.getElementById("media-list");
@@ -42,9 +41,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Reopen Terminal Functionality
-    reopenTerminalButton.addEventListener("click", () => {
-        terminalWindow.style.display = "block";
-    });
+    if (reopenTerminalButton) {
+        reopenTerminalButton.addEventListener("click", () => {
+            terminalWindow.style.display = "block";
+        });
+    }
 
     // Close Terminal Functionality
     closeTerminalButton.addEventListener("click", () => {
@@ -103,15 +104,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Toggle the Media Library Modal
     startButton.addEventListener("click", () => {
-        toggleMediaLibrary(true);
+        toggleModal(mediaLibraryModal, true);
     });
 
     closeModalButton.addEventListener("click", () => {
-        toggleMediaLibrary(false);
+        toggleModal(mediaLibraryModal, false);
     });
 
-    function toggleMediaLibrary(show) {
-        mediaLibraryModal.style.display = show ? "flex" : "none";
+    function toggleModal(modal, show) {
+        modal.style.display = show ? "flex" : "none";
     }
 
     // Function to open the Media Viewer Modal
@@ -132,13 +133,86 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         mediaTitle.textContent = item.title;
-        mediaViewer.style.display = "flex";
+        toggleModal(mediaViewer, true);
     }
 
-    // Function to close the Media Viewer Modal
-    function toggleMediaViewer(show) {
-        mediaViewer.style.display = show ? "flex" : "none";
+    // Close media viewer functionality
+    closeMediaViewerButton.addEventListener("click", () => {
+        toggleModal(mediaViewer, false);
+    });
+
+    // Function to open the livestream terminal
+    openLivestreamButton.addEventListener("click", () => {
+        livestreamTerminal.style.display = "block";
+    });
+
+    // Function to close the livestream terminal
+    livestreamTerminal.querySelector(".close-button").addEventListener("click", () => {
+        livestreamTerminal.style.display = "none";
+    });
+
+    // Dragging functionality (mouse and touch) for terminal and livestream windows
+    function addDraggingFunctionality(element, header) {
+        let isDragging = false;
+        let offsetX, offsetY;
+
+        function startDragging(e) {
+            isDragging = true;
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            offsetX = clientX - element.offsetLeft;
+            offsetY = clientY - element.offsetTop;
+            element.style.transition = "none"; // Disable transition during drag
+        }
+
+        function onDrag(e) {
+            if (isDragging) {
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                const x = clientX - offsetX;
+                const y = clientY - offsetY;
+                element.style.left = `${x}px`;
+                element.style.top = `${y}px`;
+            }
+        }
+
+        function stopDragging() {
+            isDragging = false;
+            element.style.transition = ""; // Re-enable transition if needed
+        }
+
+        // Mouse events
+        header.addEventListener("mousedown", startDragging);
+        document.addEventListener("mousemove", onDrag);
+        document.addEventListener("mouseup", stopDragging);
+
+        // Touch events
+        header.addEventListener("touchstart", startDragging);
+        document.addEventListener("touchmove", onDrag);
+        document.addEventListener("touchend", stopDragging);
     }
+
+    // Add dragging functionality to terminal window
+    addDraggingFunctionality(terminalWindow, terminalWindow.querySelector(".window-header"));
+    // Add dragging functionality to livestream terminal
+    addDraggingFunctionality(livestreamTerminal, livestreamWindowHeader);
+
+    // Function to update time
+    function updateTime() {
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const ampm = hours >= 12 ? "PM" : "AM";
+        const formattedHours = hours % 12 || 12; // Convert to 12-hour format
+        const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes; // Pad minutes with leading zero
+        timeDisplay.textContent = `${formattedHours}:${formattedMinutes} ${ampm}`;
+    }
+
+    // Update the time every second
+    setInterval(updateTime, 1000);
+    updateTime(); // Initial call to display time immediately
+});
+
 
     // Close media viewer functionality
     closeMediaViewerButton.addEventListener("click", () => {
