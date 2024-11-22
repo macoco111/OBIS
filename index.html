@@ -173,6 +173,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </script>
 
+<!-- Terminal Livestream Window -->
+<div id="livestream-terminal" class="terminal-window" style="display: none;">
+    <div class="window-header">
+        <span>Livestream Terminal</span>
+        <button class="close-button" onclick="closeLivestream()">X</button>
+    </div>
+    <div class="window-content">
+        <!-- Embed YouTube video player -->
+        <iframe id="livestream-video" 
+                src="https://www.youtube.com/embed/YOUR_YOUTUBE_STREAM_ID?autoplay=1"
+                title="YouTube Livestream"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+        </iframe>
+    </div>
+</div>
+
+<!-- Button to open the Livestream Terminal -->
+<button id="open-livestream" onclick="openLivestream()">Open Livestream</button>
+
 </body>
 
 </html>
