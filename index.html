@@ -91,30 +91,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
-    <!-- Media Library Modal -->
-    <div class="modal" id="media-library">
-      <div class="modal-content">
+   <div id="media-library" class="modal">
+    <div class="modal-content">
         <div class="modal-header">
-          <span>Media Library</span>
-          <button class="close-modal" onclick="toggleMediaLibrary(false)">X</button>
+            <span>Media Library</span>
+            <button class="close-modal" onclick="toggleMediaLibrary(false)">X</button>
         </div>
         <div class="modal-body">
-          <div class="media-grid">
-            <!-- Add your photos and videos -->
-            <div class="media-item">
-              <img src="images/photo1.jpg" alt="Photo 1">
+            <div id="media-list" class="media-list">
+                <!-- Media items as links will be dynamically added here -->
             </div>
-            <div class="media-item">
-              <img src="images/photo2.jpg" alt="Photo 2">
-            </div>
-            <div class="media-item">
-                <img src="images/photo3.jpg" alt="Photo 3">
-              </div>
-            <div class="media-item">
-              <video src="videos/video1.mp4" controls></video>
-            </div>
-            <div class="media-item">
-              <video src="videos/video2.mp4" controls></video>
+        </div>
+    </div>
+</div>
+
+<!-- Media Viewer Modal -->
+<div id="media-viewer" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span id="media-title">Media Viewer</span>
+            <button class="close-modal" onclick="toggleMediaViewer(false)">X</button>
+        </div>
+        <div class="modal-body">
+            <div id="media-display" class="media-display"></div>
+        </div>
+    </div>
+</div>
+
             </div>
           </div>
         </div>
