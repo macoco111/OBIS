@@ -140,6 +140,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script>
         document.addEventListener('contextmenu', (event) => event.preventDefault());
     </script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // When the whole window content has loaded
+        window.onload = function() {
+            // Hide the preloader and show the main content
+            const preloader = document.getElementById("preloader");
+            const mainContent = document.getElementById("main-content");
+
+            preloader.style.display = "none"; // Hide the preloader
+            mainContent.style.display = "block"; // Show the main content
+        };
+    });
+</script>
+
 </body>
 
 </html>
