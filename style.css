@@ -355,7 +355,6 @@ iframe {
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
-    font-family: 'Arial', sans-serif; /* Use the same font-family */
     margin-right: 10px; /* Adjust spacing to be consistent */
     transition: background-color 0.3s ease; /* Optional: smooth hover transition */
 }
