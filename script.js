@@ -149,4 +149,49 @@ document.addEventListener("DOMContentLoaded", () => {
     // ... Rest of your existing script (terminal, dragging, modal toggles, etc.)
   });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const livestreamTerminal = document.getElementById("livestream-terminal");
+    const windowHeader = livestreamTerminal.querySelector(".window-header");
+    const openLivestreamButton = document.getElementById("open-livestream");
+
+    // Function to open the livestream terminal
+    window.openLivestream = function() {
+        livestreamTerminal.style.display = "block";
+    };
+
+    // Function to close the livestream terminal
+    window.closeLivestream = function() {
+        livestreamTerminal.style.display = "none";
+    };
+
+    // Dragging functionality
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    // Start dragging
+    windowHeader.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        offsetX = e.clientX - livestreamTerminal.offsetLeft;
+        offsetY = e.clientY - livestreamTerminal.offsetTop;
+        livestreamTerminal.style.transition = "none"; // Disable transition during drag
+    });
+
+    // Dragging the window
+    document.addEventListener("mousemove", (e) => {
+        if (isDragging) {
+            const x = e.clientX - offsetX;
+            const y = e.clientY - offsetY;
+            livestreamTerminal.style.left = `${x}px`;
+            livestreamTerminal.style.top = `${y}px`;
+        }
+    });
+
+    // Stop dragging
+    document.addEventListener("mouseup", () => {
+        if (isDragging) {
+            isDragging = false;
+            livestreamTerminal.style.transition = ""; // Re-enable transition if needed
+        }
+    });
+});
 
