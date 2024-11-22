@@ -356,7 +356,6 @@ iframe {
     padding: 5px 10px;
     cursor: pointer;
     font-family: 'Arial', sans-serif; /* Use the same font-family */
-    font-weight: bold; /* If other buttons are bold, match it */
     margin-right: 10px; /* Adjust spacing to be consistent */
     transition: background-color 0.3s ease; /* Optional: smooth hover transition */
 }
