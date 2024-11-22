@@ -352,8 +352,8 @@ iframe {
     background-color: #007acc; /* Example color, adjust to match */
     color: white;
     border: none;
-    border-radius: 5px; /* Match the corner rounding of other buttons */
-    padding: 10px 20px; /* Match the padding (size) of other buttons */
+    border-radius: 5px;
+    padding: 5px 10px;
     cursor: pointer;
     font-family: 'Arial', sans-serif; /* Use the same font-family */
     font-weight: bold; /* If other buttons are bold, match it */
