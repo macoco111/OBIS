@@ -12,6 +12,33 @@ document.addEventListener("DOMContentLoaded", () => {
     const windowHeader = terminalWindow.querySelector(".window-header");
     const livestreamWindowHeader = livestreamTerminal.querySelector(".window-header");
     const openLivestreamButton = document.getElementById("open-livestream");
+    const mediaList = document.getElementById("media-list");
+    const mediaViewer = document.getElementById("media-viewer");
+    const mediaDisplay = document.getElementById("media-display");
+    const mediaTitle = document.getElementById("media-title");
+
+    // Sample media items
+    const mediaItems = [
+        { type: "image", title: "Photo 1", url: "images/photo1.jpg" },
+        { type: "image", title: "Photo 2", url: "images/photo2.jpg" },
+        { type: "video", title: "Video 1", url: "videos/video1.mp4" },
+    ];
+
+    // Populate the media list with clickable links
+    mediaItems.forEach((item, index) => {
+        const link = document.createElement("a");
+        link.href = "#";
+        link.className = "media-link";
+        link.textContent = `${item.title}`;
+        link.dataset.index = index;
+
+        link.addEventListener("click", (e) => {
+            e.preventDefault();
+            openMediaViewer(index);
+        });
+
+        mediaList.appendChild(link);
+    });
 
     // Reopen Terminal Functionality
     reopenTerminalButton.addEventListener("click", () => {
@@ -84,6 +111,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function toggleMediaLibrary(show) {
         mediaLibraryModal.style.display = show ? "flex" : "none";
+    }
+
+    // Function to open the Media Viewer Modal
+    function openMediaViewer(index) {
+        const item = mediaItems[index];
+        mediaDisplay.innerHTML = ""; // Clear previous content
+
+        if (item.type === "image") {
+            const img = document.createElement("img");
+            img.src = item.url;
+            img.alt = item.title;
+            mediaDisplay.appendChild(img);
+        } else if (item.type === "video") {
+            const video = document.createElement("video");
+            video.src = item.url;
+            video.controls = true;
+            mediaDisplay.appendChild(video);
+        }
+
+        mediaTitle.textContent = item.title;
+        mediaViewer.style.display = "flex";
+    }
+
+    // Function to close the Media Viewer Modal
+    function toggleMediaViewer(show) {
+        mediaViewer.style.display = show ? "flex" : "none";
     }
 
     // Function to open the livestream terminal
