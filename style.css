@@ -347,3 +347,20 @@ iframe {
     border: none;
     border-radius: 8px;
 }
+/* Styling for Open Livestream button to match Start and LucyLuvi Chat buttons */
+#open-livestream {
+    background-color: #007acc; /* Example color, adjust to match */
+    color: white;
+    border: none;
+    border-radius: 5px; /* Match the corner rounding of other buttons */
+    padding: 10px 20px; /* Match the padding (size) of other buttons */
+    cursor: pointer;
+    font-family: 'Arial', sans-serif; /* Use the same font-family */
+    font-weight: bold; /* If other buttons are bold, match it */
+    margin-right: 10px; /* Adjust spacing to be consistent */
+    transition: background-color 0.3s ease; /* Optional: smooth hover transition */
+}
+
+#open-livestream:hover {
+    background-color: #005f99; /* Example hover color, adjust to match */
+}
