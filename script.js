@@ -244,3 +244,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const mediaList = document.getElementById("media-list");
+    if (mediaList) {
+        mediaList.style.display = 'flex';
+        mediaList.style.flexDirection = 'column';
+    }
+});
+
