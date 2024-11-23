@@ -225,8 +225,6 @@ document.addEventListener("DOMContentLoaded", () => {
             addDraggingFunctionality(livestreamTerminal, livestreamWindowHeader);
         }
  
-       
-
         // Function to update time
         function updateTime() {
             if (timeDisplay) {
