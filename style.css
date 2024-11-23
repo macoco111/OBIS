@@ -7,6 +7,10 @@ body, html {
   font-family: monospace;
   background-color: #282c34;
   color: #ffffff;
+  background-image: url(images/background.gif);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 /* Terminal preloader styles */
@@ -233,4 +237,5 @@ iframe {
     border: none;
     border-radius: 8px;
 }
+
 
