@@ -224,6 +224,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (livestreamTerminal) {
             addDraggingFunctionality(livestreamTerminal, livestreamWindowHeader);
         }
+ 
+        // Add dragging functionality to livestream terminal
+        if (mediaLibraryModal) {
+            addDraggingFunctionality(mediaLibraryModal, mediaLibraryModalWindowHeader);
+        }
 
         // Function to update time
         function updateTime() {
