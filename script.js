@@ -130,28 +130,34 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Function to open the Media Viewer Modal
-        function openMediaViewer(index) {
-            if (mediaViewer && mediaDisplay && mediaTitle) {
-                const item = mediaItems[index];
-                mediaDisplay.innerHTML = ""; // Clear previous content
+function openMediaViewer(index) {
+    if (mediaViewer && mediaDisplay && mediaTitle) {
+        const item = mediaItems[index];
+        mediaDisplay.innerHTML = ""; // Clear previous content
 
-                if (item.type === "image") {
-                    const img = document.createElement("img");
-                    img.src = item.url;
-                    img.alt = item.title;
-                    mediaDisplay.appendChild(img);
-                } else if (item.type === "video") {
-                    const video = document.createElement("video");
-                    video.src = item.url;
-                    video.controls = true;
-                    mediaDisplay.appendChild(video);
-                }
+        if (item.type === "image") {
+            const img = document.createElement("img");
+            img.src = item.url;
+            img.alt = item.title;
+            mediaDisplay.appendChild(img);
+        } else if (item.type === "video") {
+            const video = document.createElement("video");
+            video.src = item.url;
+            video.controls = true;
+            video.style.width = "100%"; // Ensure full container width
+            video.style.maxWidth = "600px"; // Set maximum width to 600px
+            video.style.height = "auto"; // Maintain aspect ratio
+            video.style.borderRadius = "8px"; // Optional: Rounded corners
+            video.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)"; // Optional: Box shadow
 
-                mediaTitle.textContent = item.title;
-                toggleModal(mediaViewer, true);
-            }
+            mediaDisplay.appendChild(video);
         }
 
+        mediaTitle.textContent = item.title;
+        toggleModal(mediaViewer, true);
+    }
+}
+        
         // Close media viewer functionality
         if (closeMediaViewerButton) {
             closeMediaViewerButton.addEventListener("click", () => {
