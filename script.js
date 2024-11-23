@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const startButton = document.querySelector(".start-button");
     const mediaLibraryModal = document.getElementById("media-library");
     const closeModalButton = mediaLibraryModal?.querySelector(".close-modal");
+    const mediaLibraryHeader = mediaLibraryModal?.querySelector(".modal-header"); // Header for dragging the media library
     const terminalWindow = document.getElementById("terminal");
     const closeTerminalButton = terminalWindow?.querySelector(".close-button");
     const reopenTerminalButton = document.getElementById("reopen-terminal");
@@ -173,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // Dragging functionality (mouse and touch) for terminal, livestream, and media viewer windows
+        // Dragging functionality (mouse and touch) for terminal, livestream, media viewer, and media library windows
         function addDraggingFunctionality(element, header) {
             let isDragging = false;
             let offsetX, offsetY;
@@ -229,6 +230,11 @@ document.addEventListener("DOMContentLoaded", () => {
         // Add dragging functionality to media viewer window
         if (mediaViewer && mediaViewerHeader) {
             addDraggingFunctionality(mediaViewer, mediaViewerHeader);
+        }
+
+        // Add dragging functionality to media library window
+        if (mediaLibraryModal && mediaLibraryHeader) {
+            addDraggingFunctionality(mediaLibraryModal, mediaLibraryHeader);
         }
 
         // Function to update time
