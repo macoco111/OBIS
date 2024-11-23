@@ -238,4 +238,12 @@ iframe {
     border-radius: 8px;
 }
 
+/* Video Styling */
+video {
+    width: 100%; /* Ensures it takes full container width */
+    max-width: 600px; /* Set a maximum width */
+    height: auto; /* Adjust height to maintain aspect ratio */
+    border-radius: 8px; /* Optional: Adds rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds shadow */
+}
 
