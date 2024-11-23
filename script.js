@@ -26,8 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
             { type: "image", title: "Photo 2", url: "images/photo2.jpg" },
             { type: "image", title: "Photo 3", url: "images/photo3.jpg" },
             { type: "video", title: "Video 1", url: "videos/video1.mp4" },
-            { type: "video", title: "Video 1", url: "videos/video1.mp4" },
-            { type: "video", title: "Video 1", url: "videos/video1.mp4" },
+            { type: "video", title: "Video 1", url: "videos/video2.mp4" },
+            { type: "video", title: "Video 1", url: "videos/video3.mp4" },
         ];
 
         // Populate the media list with clickable links
