@@ -2,154 +2,130 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucyluvi</title>
-    <link rel="stylesheet" href="styles.css">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- other meta tags and content -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KSX2WFR5');</script>
+<!-- End Google Tag Manager -->
 
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-KSX2WFR5');</script>
-    <!-- End Google Tag Manager -->
-
-    <style>
-        /* Background Image Styles */
-        body {
-            background: url('images/background.gif') no-repeat center center;
-            background-size: cover; /* Makes sure the background covers the entire viewport */
-            margin: 0; /* Remove default margin */
-            height: 100vh; /* Ensure the background covers the entire height of the viewport */
-            font-family: monospace;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucyluvi</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KSX2WFR5"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KSX2WFR5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  <div class="desktop">
 
-    <div class="desktop">
-
-        <!-- Terminal Preloader -->
-        <div id="terminal-preloader">
-            <div class="terminal-text" id="loading-text"></div>
-        </div>
-
-        <!-- Main content: Hidden until the loader completes -->
-        <div id="main-content" style="display: none;">
-
-            <!-- Desktop Icons -->
-            <div class="desktop-icons">
-                <!-- Existing Icons -->
-                <a href="https://onlyfans.com/lucyluvi" target="_blank" class="icon">
-                    <img src="images/onlyfans.png" alt="OnlyFans">
-                    <span>OnlyFans</span>
-                </a>
-                <a href="https://x.com/lucycliffordd" target="_blank" class="icon">
-                    <img src="images/twitter.png" alt="Twitter">
-                    <span>Twitter</span>
-                </a>
-                <a href="https://www.instagram.com/Lucyclifford" target="_blank" class="icon">
-                    <img src="images/instagram.png" alt="Instagram">
-                    <span>Instagram</span>
-                </a>
-
-                <!-- New Icons -->
-                <a href="https://pump.fun" target="_blank" class="icon">
-                    <img src="images/pumpfun.png" alt="Pump.fun">
-                    <span>Pump.fun</span>
-                </a>
-                <a href="https://twitch.com/yourprofile" target="_blank" class="icon">
-                    <img src="images/twitch.png" alt="Twitch">
-                    <span>Twitch</span>
-                </a>
-                <a href="https://boards.4chan.org/s/" target="_blank" class="icon">
-                    <img src="images/4chan.png" alt="4chan">
-                    <span>4chan</span>
-                </a>
-                <a href="https://www.reddit.com/search/?q=porn&cId=ce00c862-8d45-4a88-96a3-df33d6d967b0&iId=d0afa61b-cad7-40bd-a4cb-59b91ee96a36" target="_blank" class="icon">
-                    <img src="images/reddit.png" alt="Reddit">
-                    <span>Reddit</span>
-                </a>
-            </div>
-
-            <!-- Taskbar -->
-            <div class="taskbar">
-                <div class="start-button">Media</div>
-                <button id="reopen-terminal" class="reopen-terminal-button">LucyLuvi Chat</button>
-                <button id="open-livestream" onclick="openLivestream()">Open Livestream</button>
-                <div class="time" id="time-display">--:-- --</div>
-                <div id="country-display" class="country-display">Lucyluvi</div>
-            </div>
-
-            <!-- Terminal Window -->
-            <div class="window" id="terminal">
-                <div class="window-header">
-                    <span>Terminal</span>
-                    <button class="close-button">X</button>
-                </div>
-                <div class="window-content">
-                    <div id="terminal-output"></div>
-                    <input type="text" id="terminal-input" placeholder="Type a command..." autofocus>
-                </div>
-            </div>
-
-            <!-- Media Library Modal -->
-            <div id="media-library" class="modal">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <span>Media Library</span>
-                        <button class="close-modal" onclick="toggleMediaLibrary(false)">X</button>
-                    </div>
-                    <div class="modal-body">
-                        <div id="media-list" class="media-list">
-                            <!-- Media items as links will be dynamically added here -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Media Viewer Modal -->
-            <div id="media-viewer" class="modal">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <span id="media-title">Media Viewer</span>
-                        <button class="close-modal" onclick="toggleMediaViewer(false)">X</button>
-                    </div>
-                    <div class="modal-body">
-                        <div id="media-display" class="media-display"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Livestream Terminal Window -->
-            <div id="livestream-terminal" class="terminal-window" style="display: none;">
-                <div class="window-header">
-                    <span>Livestream Terminal</span>
-                    <button class="close-button" onclick="closeLivestream()">X</button>
-                </div>
-                <div class="window-content">
-                    <!-- Embed YouTube video player -->
-                    <iframe id="livestream-video" 
-                            src="https://www.youtube.com/embed/YOUR_YOUTUBE_STREAM_ID?autoplay=1"
-                            title="YouTube Livestream"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-
-        </div>
+    <!-- Terminal Preloader -->
+    <div id="terminal-preloader">
+        <div class="terminal-text" id="loading-text"></div>
     </div>
 
-    <!-- Link to Stylesheet -->
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <!-- Main content: Hidden until the loader completes -->
+    <div id="main-content" style="display: none;">
+        
+    </div>
 
-    <!-- Prevent Developer Tools -->
-    <script>
+    <div class="desktop-icons">
+      <!-- Existing Icons -->
+      <a href="https://onlyfans.com/lucyluvi" target="_blank" class="icon">
+        <img src="images/onlyfans.png" alt="OnlyFans">
+        <span>OnlyFans</span>
+      </a>
+      <a href="https://x.com/lucycliffordd" target="_blank" class="icon">
+        <img src="images/twitter.png" alt="Twitter">
+        <span>Twitter</span>
+      </a>
+      <a href="https://www.instagram.com/Lucyclifford" target="_blank" class="icon">
+        <img src="images/instagram.png" alt="Instagram">
+        <span>Instagram</span>
+      </a>
+
+      <!-- New Icons -->
+      <a href="https://pump.fun" target="_blank" class="icon">
+        <img src="images/pumpfun.png" alt="Pump.fun">
+        <span>Pump.fun</span>
+      </a>
+      <a href="https://twitch.com/yourprofile" target="_blank" class="icon">
+        <img src="images/twitch.png" alt="Twitch">
+        <span>Twitch</span>
+      </a>
+      <a href="https://boards.4chan.org/s/" target="_blank" class="icon">
+        <img src="images/4chan.png" alt="4chan">
+        <span>4chan</span>
+      </a>
+      <a href="https://www.reddit.com/search/?q=porn&cId=ce00c862-8d45-4a88-96a3-df33d6d967b0&iId=d0afa61b-cad7-40bd-a4cb-59b91ee96a36" target="_blank" class="icon">
+        <img src="images/reddit.png" alt="Reddit">
+        <span>Reddit</span>
+      </a>
+    </div>
+
+    <!-- Taskbar -->
+    <div class="taskbar">
+        <div class="start-button">Media</div>
+        <button id="reopen-terminal" class="reopen-terminal-button">LucyLuvi Chat</button>
+        <button id="open-livestream" onclick="openLivestream()">Open Livestream</button>
+        <div class="time" id="time-display">--:-- --</div>
+     <div id="country-display" class="country-display">Lucyluvi</div>
+    </div>
+
+    <!-- Terminal Window -->
+    <div class="window" id="terminal">
+      <div class="window-header">
+        <span>Terminal</span>
+        <button class="close-button">X</button>
+      </div>
+      <div class="window-content">
+        <div id="terminal-output"></div>
+        <input type="text" id="terminal-input" placeholder="Type a command..." autofocus>
+      </div>
+    </div>
+
+   <div id="media-library" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span>Media Library</span>
+            <button class="close-modal" onclick="toggleMediaLibrary(false)">X</button>
+        </div>
+        <div class="modal-body">
+            <div id="media-list" class="media-list">
+                <!-- Media items as links will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Media Viewer Modal -->
+<div id="media-viewer" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span id="media-title">Media Viewer</span>
+            <button class="close-modal" onclick="toggleMediaViewer(false)">X</button>
+        </div>
+        <div class="modal-body">
+            <div id="media-display" class="media-display"></div>
+        </div>
+    </div>
+</div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <link rel="stylesheet" href="styles.css">
+<script src="script.js" defer></script>
+<script>
         document.addEventListener('keydown', (event) => {
             // Disable F12
             if (event.key === "F12") {
@@ -165,34 +141,60 @@
             }
         });
     </script>
-
-    <!-- Terminal Preloader Script -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const lines = ["Boobs are ready...", "Pussy getting wet...", "Are you horny ? ..."];
-            const loadingTextElement = document.getElementById("loading-text");
-            let lineIndex = 0;
+    // Define the lines of text to display
+    const lines = [
+        "Boobs are ready...",
+        "Pussy getting wet...",
+        "Are you horny ? ..."
+    ];
 
-            function typeLine() {
-                if (lineIndex < lines.length) {
-                    loadingTextElement.innerHTML += lines[lineIndex] + "\n";
-                    lineIndex++;
-                    setTimeout(typeLine, 1500);
-                } else {
-                    setTimeout(() => {
-                        const preloader = document.getElementById("terminal-preloader");
-                        const mainContent = document.getElementById("main-content");
-                        preloader.style.display = "none";
-                        mainContent.style.display = "block";
-                    }, 1000);
-                }
-            }
+    const loadingTextElement = document.getElementById("loading-text");
+    let lineIndex = 0;
 
-            window.onload = function() {
-                typeLine();
-            };
-        });
-    </script>
+    function typeLine() {
+        if (lineIndex < lines.length) {
+            loadingTextElement.innerHTML += lines[lineIndex] + "\n";
+            lineIndex++;
+            setTimeout(typeLine, 1500); // Delay for each line
+        } else {
+            // All lines have been typed; hide the preloader after a short delay
+            setTimeout(() => {
+                const preloader = document.getElementById("terminal-preloader");
+                const mainContent = document.getElementById("main-content");
+
+                preloader.style.display = "none"; // Hide the preloader
+                mainContent.style.display = "block"; // Show the main content
+            }, 1000);
+        }
+    }
+
+    // Start typing the lines when the content is loaded
+    window.onload = function() {
+        typeLine();
+    };
+});
+
+</script>
+
+<!-- Terminal Livestream Window -->
+<div id="livestream-terminal" class="terminal-window" style="display: none;">
+    <div class="window-header">
+        <span>Livestream Terminal</span>
+        <button class="close-button" onclick="closeLivestream()">X</button>
+    </div>
+    <div class="window-content">
+        <!-- Embed YouTube video player -->
+        <iframe id="livestream-video" 
+                src="https://www.youtube.com/embed/YOUR_YOUTUBE_STREAM_ID?autoplay=1"
+                title="YouTube Livestream"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+        </iframe>
+    </div>
+</div>
 
 </body>
 
