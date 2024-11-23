@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const link = document.createElement("a");
                 link.href = "#";
                 link.className = "media-link";
-                link.textContent = `${item.title}`;
+                link.textContent = ${item.title};
                 link.dataset.index = index;
 
                 link.addEventListener("click", (e) => {
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
             input = input.toLowerCase();
             // Basic replies based on user input
             if (input.includes("hello") || input.includes("hi")) {
-                return " hey babe thanks for visiting for my page! How’s your day?☺️";
+                return " hey babe thanks for visiting for my page! How’s your day?☺";
             } else if (input.includes("how are you")) {
                 return "it’s Lucy here, ur new favourite girl next door 🥰 lovely meeting you!";
             } else if (input.includes("your name")) {
@@ -83,9 +83,9 @@ document.addEventListener("DOMContentLoaded", () => {
             } else if (input.includes("fuck")) {
                 return "Yes daddy make me wet";
             } else if (input.includes("love")) {
-                return "aww that made me blush! ☺️ always here to make you smile and relieve your stress, I hope to connect with you further";
+                return "aww that made me blush! ☺ always here to make you smile and relieve your stress, I hope to connect with you further";
             } else if (input.includes("bye")) {
-                return "goodbye, I’m sure to speak soon babe! ☺️🤫";
+                return "goodbye, I’m sure to speak soon babe! ☺🤫";
             } else if (input === "clear") {
                 return "clear"; // Reserved for clearing the screen
             } else {
@@ -98,14 +98,14 @@ document.addEventListener("DOMContentLoaded", () => {
             terminalInput.addEventListener("keydown", (e) => {
                 if (e.key === "Enter") {
                     const userInput = terminalInput.value.trim();
-                    terminalOutput.innerHTML += `> ${userInput}\n`; // Echo the user's input
+                    terminalOutput.innerHTML += > ${userInput}\n; // Echo the user's input
 
                     const reply = generateReply(userInput);
 
                     if (reply === "clear") {
                         terminalOutput.innerHTML = ""; // Clear terminal
                     } else {
-                        terminalOutput.innerHTML += `${reply}\n`; // Show the reply
+                        terminalOutput.innerHTML += ${reply}\n; // Show the reply
                     }
 
                     terminalInput.value = ""; // Clear input
@@ -192,8 +192,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     const clientY = e.touches ? e.touches[0].clientY : e.clientY;
                     const x = clientX - offsetX;
                     const y = clientY - offsetY;
-                    element.style.left = `${x}px`;
-                    element.style.top = `${y}px`;
+                    element.style.left = ${x}px;
+                    element.style.top = ${y}px;
                 }
             }
 
@@ -224,7 +224,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (livestreamTerminal) {
             addDraggingFunctionality(livestreamTerminal, livestreamWindowHeader);
         }
- 
+
+
+
         // Function to update time
         function updateTime() {
             if (timeDisplay) {
@@ -233,8 +235,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 const minutes = now.getMinutes();
                 const ampm = hours >= 12 ? "PM" : "AM";
                 const formattedHours = hours % 12 || 12; // Convert to 12-hour format
-                const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes; // Pad minutes with leading zero
-                timeDisplay.textContent = `${formattedHours}:${formattedMinutes} ${ampm}`;
+                const formattedMinutes = minutes < 10 ? 0${minutes} : minutes; // Pad minutes with leading zero
+                timeDisplay.textContent = ${formattedHours}:${formattedMinutes} ${ampm};
             }
         }
 
