@@ -224,9 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (livestreamTerminal) {
             addDraggingFunctionality(livestreamTerminal, livestreamWindowHeader);
         }
-
-
-
+ 
         // Function to update time
         function updateTime() {
             if (timeDisplay) {
@@ -253,4 +251,3 @@ document.addEventListener("DOMContentLoaded", () => {
         mediaList.style.flexDirection = 'column';
     }
 });
-
