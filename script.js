@@ -129,34 +129,35 @@ document.addEventListener("DOMContentLoaded", () => {
             modal.style.display = show ? "flex" : "none";
         }
 
-        // Function to open the Media Viewer Modal
-function openMediaViewer(index) {
-    if (mediaViewer && mediaDisplay && mediaTitle) {
-        const item = mediaItems[index];
-        mediaDisplay.innerHTML = ""; // Clear previous content
+ // Function to open the Media Viewer Modal
+        function openMediaViewer(index) {
+            if (mediaViewer && mediaDisplay && mediaTitle) {
+                const item = mediaItems[index];
+                mediaDisplay.innerHTML = ""; // Clear previous content
 
-        if (item.type === "image") {
-            const img = document.createElement("img");
-            img.src = item.url;
-            img.alt = item.title;
-            mediaDisplay.appendChild(img);
-        } else if (item.type === "video") {
-            const video = document.createElement("video");
-            video.src = item.url;
-            video.controls = true;
-            video.style.width = "100%"; // Ensure full container width
-            video.style.maxWidth = "600px"; // Set maximum width to 600px
-            video.style.height = "auto"; // Maintain aspect ratio
-            video.style.borderRadius = "8px"; // Optional: Rounded corners
-            video.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)"; // Optional: Box shadow
+                if (item.type === "image") {
+                    const img = document.createElement("img");
+                    img.src = item.url;
+                    img.alt = item.title;
+                    mediaDisplay.appendChild(img);
+                } else if (item.type === "video") {
+                    const video = document.createElement("video");
+                    video.src = item.url;
+                    video.controls = true;
+                    video.muted = true; // Mute the video by default
+                    video.style.width = "100%"; // Ensure full container width
+                    video.style.maxWidth = "600px"; // Set maximum width to 600px
+                    video.style.height = "auto"; // Maintain aspect ratio
+                    video.style.borderRadius = "8px"; // Optional: Rounded corners
+                    video.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)"; // Optional: Box shadow
 
-            mediaDisplay.appendChild(video);
+                    mediaDisplay.appendChild(video);
+                }
+
+                mediaTitle.textContent = item.title;
+                toggleModal(mediaViewer, true);
+            }
         }
-
-        mediaTitle.textContent = item.title;
-        toggleModal(mediaViewer, true);
-    }
-}
         
         // Close media viewer functionality
         if (closeMediaViewerButton) {
