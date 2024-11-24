@@ -247,3 +247,19 @@ video {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds shadow */
 }
 
+/* General image styling to make images responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Custom media query to adjust image behavior for smaller screens */
+@media (max-width: 768px) {
+    img {
+        width: 90%;  /* Adjust the width for smaller screens */
+        margin: 0 auto;  /* Center images on small screens */
+        display: block;  /* Makes sure it's treated as a block element */
+    }
+}
+
+
